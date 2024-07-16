@@ -10,7 +10,7 @@ func TestSumInts(t *testing.T) {
 		"first":  2,
 		"second": 2,
 	}
-	got := SumIntsOrFloats[string, int64](numbers)
+	got := SumNumbers(numbers)
 
 	if got != want {
 		t.Errorf("got %d want %d, given %v", got, want, numbers)
@@ -23,7 +23,7 @@ func TestSumFloats(t *testing.T) {
 		"first":  1.75,
 		"second": 1.75,
 	}
-	got := SumIntsOrFloats[string, float64](numbers)
+	got := SumNumbers(numbers)
 
 	if got != want {
 		t.Errorf("got %f want %f, given %v", got, want, numbers)

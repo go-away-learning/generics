@@ -2,7 +2,11 @@ package main
 
 import "fmt"
 
-func SumIntsOrFloats[K comparable, V int64 | float64](m map[K]V) V {
+type Number interface {
+	int64 | float64
+}
+
+func SumNumbers[K comparable, V Number](m map[K]V) V {
 	var sum V
 	for _, v := range m {
 		sum += v
@@ -24,6 +28,6 @@ func main() {
 	}
 
 	fmt.Printf("Non-Generic Sums: %v and %v\n",
-		SumIntsOrFloats[string, int64](ints),
-		SumIntsOrFloats[string, float64](floats))
+		SumNumbers(ints),
+		SumNumbers(floats))
 }
